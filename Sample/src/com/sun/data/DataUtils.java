@@ -13,6 +13,12 @@ public class DataUtils {
 	
 	private DataUtils() {}
 	
+	/************************************
+	 * 通过反射（InjectData）实现
+	 * 保存Activity/Fragment对象中常用变量
+	 * 数据必须是public和protected，建议使用protected
+	 * {@link onRestoreState}
+	 * *********************************/
 	public static final void onSaveState(Object obj, Bundle outState) {
 		onSaveState(obj.getClass().getDeclaredFields(), obj, outState);
 		Class<? extends Object> _supperclass = obj.getClass().getSuperclass();
@@ -20,7 +26,12 @@ public class DataUtils {
 			onSaveState(_supperclass.getDeclaredFields(), obj, outState);
 		}
 	}
-	
+	/************************************
+	 * 通过反射（InjectData）实现
+	 * 恢复Activity/Fragment对象中常用变量
+	 * 数据必须是public和protected，建议使用protected
+	 * {@link onSaveState}
+	 * *********************************/
 	public static final void onRestoreState(Object obj, Bundle savedInstanceState) {
 		onRestore(obj.getClass().getDeclaredFields(), obj, savedInstanceState);
 		Class<? extends Object> _supperclass = obj.getClass().getSuperclass();

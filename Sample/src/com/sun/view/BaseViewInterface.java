@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.sun.activity;
+package com.sun.view;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -39,7 +39,7 @@ public interface BaseViewInterface {
 	 * ****************************/
 	public void initDataBundle(Bundle bundle);
 	/******************************
-	 * 初始化页面
+	 * 初始化View
 	 * ****************************/
 	public void initView();
 	/******************************
