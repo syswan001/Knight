@@ -9,7 +9,6 @@ import android.text.TextUtils;
 
 import com.sun.data.DataUtils;
 import com.sun.inject.Injector;
-import com.sun.slidingmenu.R;
 
 public abstract class BaseActionBarActivity extends ActionBarActivity implements BaseViewInterface {
 	
@@ -74,7 +73,7 @@ public abstract class BaseActionBarActivity extends ActionBarActivity implements
 		ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		actionBar.setHomeButtonEnabled(isHomeButtonEnabled());
-		actionBar.setIcon(R.drawable.ic_launcher);
+		actionBar.setIcon(com.sun.R.drawable.ic_launcher);
 		if(!TextUtils.isEmpty(getActionBarTitle())) {
 			actionBar.setTitle(getActionBarTitle());
 		}

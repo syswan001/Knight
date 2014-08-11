@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">"Sample haha "</string>
+    <string name="app_name">"Sample"</string>
     <string name="title_section1">"扫码"</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>

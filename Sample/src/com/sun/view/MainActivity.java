@@ -1,4 +1,4 @@
-package com.sun.slidingmenu;
+package com.sun.view;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.sun.R;
 import com.sun.activity.BaseActionBarActivity;
 import com.sun.inject.InjectData;
 
