@@ -6,11 +6,15 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.sun.inject.Injector;
+import com.sun.util.Properties;
 
 public abstract class BaseFragment extends Fragment implements BaseViewInterface {
 
@@ -18,131 +22,130 @@ public abstract class BaseFragment extends Fragment implements BaseViewInterface
 	
 	@Override
 	public String getActionBarTitle() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int getActionBarIcon() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public boolean isHomeButtonEnabled() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
+	@Deprecated
 	public void initDataIntent(Intent intent) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void initDataBundle(Bundle bundle) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void initView() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void onResumeView() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void handleMessage(Message msg) {
-		// TODO Auto-generated method stub
-		
 	}
-	
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-	}
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		return super.onCreateView(inflater, container, savedInstanceState);
-	}
-	
 	@Override
 	public void onAttach(Activity activity) {
-		// TODO Auto-generated method stub
 		super.onAttach(activity);
+		if (Properties.isLog)Log.i(TAG, "onAttach");
 	}
 	@Override
-	public void onDetach() {
-		// TODO Auto-generated method stub
-		super.onDetach();
-	}
-	@Override
-	public void onResume() {
-		// TODO Auto-generated method stub
-		super.onResume();
-	}
-	@Override
-	public void onStart() {
-		// TODO Auto-generated method stub
-		super.onStart();
-	}
-	@Override
-	public void onPause() {
-		// TODO Auto-generated method stub
-		super.onPause();
-	}
-	@Override
-	public void onStop() {
-		// TODO Auto-generated method stub
-		super.onStop();
-	}
-	@Override
-	public void onDestroy() {
-		// TODO Auto-generated method stub
-		super.onDestroy();
-	}
-	@Override
-	public void onDestroyOptionsMenu() {
-		// TODO Auto-generated method stub
-		super.onDestroyOptionsMenu();
-	}
-	@Override
-	public void onDestroyView() {
-		// TODO Auto-generated method stub
-		super.onDestroyView();
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		if (Properties.isLog)Log.i(TAG, "onCreate");
+		if(savedInstanceState != null) {
+			initDataBundle(savedInstanceState);
+		}
 	}
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
-		// TODO Auto-generated method stub
 		super.onSaveInstanceState(outState);
+		if (Properties.isLog)Log.i(TAG, "onSaveInstanceState");
+	}
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		if (Properties.isLog)Log.i(TAG, "onCreateView");
+		return inflater.inflate(getLayoutID(), container, false);
 	}
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		if (Properties.isLog)Log.i(TAG, "onActivityCreated");
+		Injector.injectFragment(this, getView());
+		initView();
+	}
+	@Override
+	public void onViewStateRestored(Bundle savedInstanceState) {
+		super.onViewStateRestored(savedInstanceState);
+		if (Properties.isLog)Log.i(TAG, "onViewStateRestored");
+	}
+	@Override
+	public void onDetach() {
+		super.onDetach();
+		if (Properties.isLog)Log.i(TAG, "onDetach");
+	}
+	@Override
+	public void onResume() {
+		super.onResume();
+		if (Properties.isLog)Log.i(TAG, "onResume");
+		onResumeView();
+	}
+	@Override
+	public void onStart() {
+		super.onStart();
+		if (Properties.isLog)Log.i(TAG, "onStart");
+	}
+	@Override
+	public void onPause() {
+		super.onPause();
+		if (Properties.isLog)Log.i(TAG, "onPause");
+	}
+	@Override
+	public void onStop() {
+		super.onStop();
+		if (Properties.isLog)Log.i(TAG, "onStop");
+	}
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		if (Properties.isLog)Log.i(TAG, "onDestroy");
+	}
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+		if (Properties.isLog)Log.i(TAG, "onDestroyView");
+	}
+	
+	@Override
+	public void onDestroyOptionsMenu() {
+		super.onDestroyOptionsMenu();
+		if (Properties.isLog)Log.i(TAG, "onDestroyOptionsMenu");
 	}
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
-		// TODO Auto-generated method stub
 		super.onConfigurationChanged(newConfig);
+		if (Properties.isLog)Log.i(TAG, "onConfigurationChanged");
 	}
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// TODO Auto-generated method stub
+		if (Properties.isLog)Log.i(TAG, "onOptionsItemSelected");
 		return super.onOptionsItemSelected(item);
 	}
 	@Override
 	public void onOptionsMenuClosed(Menu menu) {
-		// TODO Auto-generated method stub
 		super.onOptionsMenuClosed(menu);
+		if (Properties.isLog)Log.i(TAG, "onOptionsMenuClosed");
 	}
 	
 

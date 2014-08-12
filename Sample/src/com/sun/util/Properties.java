@@ -21,7 +21,7 @@ public class Properties {
 	
 	public static final String apk_url = "http://www.tappal.com/tappal.400.apk";
 	
-	public static final boolean isLog = false;
+	public static final boolean isLog = true;
 	
 	public static final String getHttpUrl() {
 		return isTestUrl ? mTestUrl : mUrl;
