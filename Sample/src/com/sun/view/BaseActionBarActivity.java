@@ -88,12 +88,14 @@ public abstract class BaseActionBarActivity extends ActionBarActivity implements
 
 	@Override
 	public void initView() {
-//		ActionBar actionBar = getSupportActionBar();
-//		actionBar.setDisplayHomeAsUpEnabled(true);
-//		actionBar.setHomeButtonEnabled(isHomeButtonEnabled());
-//		actionBar.setIcon(com.sun.R.drawable.ic_launcher);
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setHomeButtonEnabled(isHomeButtonEnabled());
+		if(getActionBarIcon() > 0) {
+			actionBar.setIcon(getActionBarIcon());
+		}
 		if(!TextUtils.isEmpty(getActionBarTitle())) {
-//			actionBar.setTitle(getActionBarTitle());
+			actionBar.setTitle(getActionBarTitle());
 		}
 	}
 	
