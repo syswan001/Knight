@@ -1,4 +1,4 @@
-package com.sun.view;
+package com.sun.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -55,12 +55,14 @@ public abstract class BaseActionBarActivity extends ActionBarActivity implements
 	protected void onResume() {
 		super.onResume();
 		if (Properties.isLog)Log.i(TAG, "onResume");
+		ActivityManager.instance().addActivity(this);
 		onResumeView();
 	}
 	
 	@Override
 	protected void onPause() {
 		super.onPause();
+		ActivityManager.instance().removeActivity(this);
 		if (Properties.isLog)Log.i(TAG, "onPause");
 	}
 	

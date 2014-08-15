@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.sun.view;
+package com.sun.activity;
 
 import android.app.Activity;
 import android.content.Intent;
