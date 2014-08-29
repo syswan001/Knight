@@ -16,6 +16,7 @@ public class DataUtils {
 	/************************************
 	 * 通过反射（InjectData）实现
 	 * 保存Activity/Fragment对象中常用变量
+	 * 由于在父类实现
 	 * 数据必须是public和protected，建议使用protected
 	 * {@link onRestoreState}
 	 * *********************************/
@@ -40,7 +41,6 @@ public class DataUtils {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
 	private static final void onSaveState(Field[] fields, Object obj, Bundle outsave) {
 		if(fields == null || fields.length == 0) return;
 		try {

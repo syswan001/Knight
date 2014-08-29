@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.custom.customview.lib.SwitchView
+        android:id="@+id/custom"
+        style="@style/switch_view_holo_light_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.custom.customview.lib.OvalImageView
+        android:id="@+id/oval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/custom"
+        android:src="@drawable/beach" />
+    
+    <ImageView
+        android:id="@+id/test_bitmap"
+        android:layout_below="@+id/oval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
